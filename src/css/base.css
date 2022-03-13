@@ -6,22 +6,41 @@
 
 :root {
 	font-size: 15px;
+	--expluce-purple: #894D71;
+	--expluce-pink: #F78DA7;
+	--bg-colour: white; /*#1e272e;*/
+}
+
+@font-face {
+	font-family: Merge;
+	src: url(/src/fonts/merge-std-light.woff);
+}
+
+@font-face {
+	font-family: Museo Sans;
+	src: url(/src/fonts/MuseoSans_500.otf);
 }
 
 body {
+	font-size: 14pt;
 	margin: 0;
-	--color-text: #000;
-	--color-bg: #f7f5ee;
-	--color-link: #000;
-	--color-link-hover: #000;
+	--color-text: var(--expluce-purple);
+	--color-bg: var(--bg-colour);
+	--color-link: var(--expluce-pink);
+	--color-link-hover: var(--expluce-purple);
 	color: var(--color-text);
 	background-color: var(--color-bg);
-	font-family: rustica, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif;
+	font-family: Museo Sans, rustica, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	overflow: hidden;
 	overflow-y: scroll;
-	line-height: 1;
+	line-height: 1.2;
+}
+
+h1, h2 {
+	font-family: Merge;
+	color: var(--expluce-pink);
 }
 
 /* Page Loader */
@@ -143,9 +162,21 @@ a:focus-visible {
 }
 
 .frame__title {
-	font-size: 1rem;
+	font-size: 3em;
 	font-weight: 400;
-	margin: 0 0 2rem 0;
+	margin: 0;
+}
+
+.frame__subtitle {
+	font-size: 1.5em;
+	font-weight: 200;
+	margin: 0 0 1.rem 0;
+}
+
+.frame__text {
+	font-size: 1em;
+	font-weight: 100;
+	margin: 0 0 1em 0;
 }
 
 .frame__links {
@@ -254,7 +285,7 @@ a:focus-visible {
 
 .content__item-heading {
 	font-size: 4vw;
-	line-height: 1;
+	line-height: 1.2;
 	margin: 1rem 0 3rem 0;
 	font-weight: 600;
 }
@@ -309,6 +340,49 @@ a:focus-visible {
 	background-position: 50% 50%;
 }
 
+/* Button design */
+
+.view-series {
+	display: inline-block;
+	border-radius: 4px;
+	background-color: var(--bg-colour);
+	border-color: var(--expluce-pink);
+	color: var(--expluce-pink);
+	text-align: center;
+	font-family: Merge;
+	font-size: 1em;
+	padding: 20px;
+	width: 200px;
+	transition: all 0.5s;
+	cursor: pointer;
+	margin: 5px;
+}
+
+.view-series span {
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: 0.5s;
+}
+  
+.view-series span:after {
+	content: '\00bb';
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	right: -20px;
+	transition: 0.5s;
+}
+  
+.view-series:hover span {
+	padding-right: 25px;
+}
+  
+.view-series:hover span:after {
+	opacity: 1;
+	right: 0;
+}
+
 .back {
 	background: none;
 	border: 0;
@@ -316,7 +390,8 @@ a:focus-visible {
 	margin: auto 0 1.5rem 0;
     opacity: 0;
     pointer-events: none;
-    stroke: #000;
+    stroke: #894D71;
+	stroke-width: 2;
     z-index: 1000;
     cursor: pointer;
     width: 50px;
